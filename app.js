@@ -1,15 +1,23 @@
-const http = require('http');
+const path = require('path');
 
-const server = http.createServer((request, response) =>{
-    console.log(request.method, request.headers, request.url);
-    // process.exit();
+const express = require('express');
+const bodyParser = require('body-parser');
 
-    response.setHeader('Content-Type', 'text/html');
-    response.write('<html>');
-    response.write('<head><title>My first page written on NodeJS :)</title></head>');
-    response.write('<body>Hello from NodeJS :)......</body>');
-    response.write('</html>');
-    response.end();
-})
+const adminRouter = require('./routes/admin');
+const shopRouter = require('./routes/shop');
+const rootDir = require('./util/path');
 
-server.listen(3000);
+const app = express();
+
+app.use(bodyParser.urlencoded({extended: false}));
+
+
+app.use('/admin', adminRouter);
+app.use(shopRouter);
+
+app.use((req, res, next) =>{
+    res.status(404).sendFile(path.join(rootDir, 'views', '404.html'))
+});
+
+
+app.listen(3000);

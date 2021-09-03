@@ -1,0 +1,30 @@
+{
+    "name": "node-js-learning-project",
+    "version": "1.0.0",
+    "description": "Some description",
+    "main": "app.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "start": "nodemon app.js"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/viettn24/Node-Js-Learning-Project.git"
+    },
+    "keywords": [
+        "learning"
+    ],
+    "author": "VietTN24",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/viettn24/Node-Js-Learning-Project/issues"
+    },
+    "homepage": "https://github.com/viettn24/Node-Js-Learning-Project#readme",
+    "dependencies": {
+        "body-parser": "^1.19.0",
+        "express": "^4.17.1"
+    },
+    "devDependencies": {
+        "nodemon": "^2.0.12"
+    }
+}
